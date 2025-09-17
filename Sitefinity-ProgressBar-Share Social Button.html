@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article with Scroll Progress</title>
+  <!-- ✅ Open Graph Meta Tags -->
+  <meta property="og:title" content="Sample Article Title-1" />
+  <meta property="og:description" content="This is a demo article with scroll progress and social sharing buttons." />
+  <meta property="og:image" content="https://github.com/Divyashree-V/Sharing-Social-Button.git/images/article-preview.jpg" />
+  <meta property="og:url" content="https://github.com/Divyashree-V/Sharing-Social-Button.git" />
+  <meta property="og:type" content="article" />
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sample Article Title-1" />
+  <meta name="twitter:description" content="This is a demo article with scroll progress and social sharing buttons." />
+  <meta name="twitter:image" content="https://yourdomain.com/images/article-preview.jpg" />
+
+  <!-- Ionicons CDN -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Progress bar */
+    #progressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: red;
+      width: 0%;
+      z-index: 1000;
+    }
+
+    /* Article container */
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    /* Floating share button */
+    .share-container {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    /* Each share button */
+    .share-buttons a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #444;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .share-buttons a:hover {
+      background-color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+      .share-container {
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress bar -->
+  <div id="progressBar"></div>
+
+  <!-- Article -->
+  <div class="container">
+    <h1>Sample Article Title-1</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae...</p>
+    <p>Aliquam erat volutpat. Nulla facilisi. Pellentesque habitant morbi tristique...</p>
+    <p>Curabitur non risus in orci consectetur condimentum. Integer at pulvinar...</p>
+    <p>Ut fringilla sapien nec nunc ultricies, non gravida nulla blandit...</p>
+    <p>Phasellus accumsan, lorem vel feugiat tristique, arcu nulla mattis lectus...</p>
+    <p>Vivamus venenatis elit vitae justo egestas, nec elementum sapien porttitor...</p>
+    <p>Aenean eget tellus vitae justo accumsan egestas non a mi...</p>
+  </div>
+  <div class="container">
+    <h1>Sample Article Title-2</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae...</p>
+    <p>Aliquam erat volutpat. Nulla facilisi. Pellentesque habitant morbi tristique...</p>
+    <p>Curabitur non risus in orci consectetur condimentum. Integer at pulvinar...</p>
+    <p>Ut fringilla sapien nec nunc ultricies, non gravida nulla blandit...</p>
+    <p>Phasellus accumsan, lorem vel feugiat tristique, arcu nulla mattis lectus...</p>
+    <p>Vivamus venenatis elit vitae justo egestas, nec elementum sapien porttitor...</p>
+    <p>Aenean eget tellus vitae justo accumsan egestas non a mi...</p>
+  </div>
+  <div class="container">
+    <h1>Sample Article Title-3</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae...</p>
+    <p>Aliquam erat volutpat. Nulla facilisi. Pellentesque habitant morbi tristique...</p>
+    <p>Curabitur non risus in orci consectetur condimentum. Integer at pulvinar...</p>
+    <p>Ut fringilla sapien nec nunc ultricies, non gravida nulla blandit...</p>
+    <p>Phasellus accumsan, lorem vel feugiat tristique, arcu nulla mattis lectus...</p>
+    <p>Vivamus venenatis elit vitae justo egestas, nec elementum sapien porttitor...</p>
+    <p>Aenean eget tellus vitae justo accumsan egestas non a mi...</p>
+  </div>
+
+  <!-- Social Share Buttons -->
+	<div class="share-buttons d-flex gap-3">
+	  <!-- Facebook -->
+	  <a href="#" class="share-fb" target="_blank" rel="noopener" aria-label="Share on Facebook">
+		<i class="ion-social-facebook"></i>
+	  </a>
+
+	  <!-- Twitter -->
+	  <a href="#" class="share-tw" target="_blank" rel="noopener" aria-label="Share on Twitter">
+		<i class="ion-social-twitter"></i>
+	  </a>
+
+	  <!-- LinkedIn -->
+	  <a href="#" class="share-li" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+		<i class="ion-social-linkedin"></i>
+	  </a>
+	</div>
+
+  <script>
+    // Progress bar logic
+    window.onscroll = function () {
+      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+  </script>
+ 
+	<script>
+		 // LinkedIn Share
+	  document.addEventListener('DOMContentLoaded', function () {
+		const pageUrl = encodeURIComponent(window.location.href);
+		const pageTitle = encodeURIComponent(document.title);
+
+		 document.querySelector('.share-fb').href =
+        `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+      document.querySelector('.share-tw').href =
+        `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+
+      document.querySelector('.share-li').href =
+        `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+    });
+	</script>
+</body>
+</html>
